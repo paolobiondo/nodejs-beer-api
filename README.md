@@ -2,7 +2,7 @@
 
 Technology: NodeJS with ExpressJS  \
 Database: MySQL  \
-ORM: typeorm  \
+ORM: typeorm
 
 1) create an .env file inside the folder server with this code:
 ```

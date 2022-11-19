@@ -16,16 +16,20 @@ export async function findBestProduction(items) {
 }
 
 export function cleanProduction() {
-    try {
-        dataSource
-            .createQueryBuilder()
-            .delete()
-            .from(Production)
-            .execute()
-            .then(() => {
-                console.log("cleaned")
-            })
-    } catch (error) {
-        console.log(`error while deleting: ${error}`)
-    }
+    return new Promise((resolve, reject) => {
+        try {
+            dataSource
+                .createQueryBuilder()
+                .delete()
+                .from(Production)
+                .execute()
+                .then(() => {
+                    console.log("cleaned")
+                    resolve("cleaned")
+                })
+        } catch (error) {
+            console.log(`error while deleting: ${error}`)
+            reject("error")
+        }
+    })
 }
