@@ -1,0 +1,5 @@
+node_modules
+.env
+.js
+.jsm
+.DS_Store
