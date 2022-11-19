@@ -1,5 +1,6 @@
 # nodejs-beer-api
 
+Technology: NodeJS with ExpressJS
 Database: MySQL
 ORM: typeorm
 
@@ -18,6 +19,6 @@ DB_DOCKER_PASSWORD=beer
 DB_DOCKER_NAME=beer
 ```
 2) run the code:
-    3a) docker (test automatically): docker-compose up
-    3b) to test it: npm test
-    3c) to run api: npm start
+- docker (test automatically): docker-compose up
+- to test it: npm test
+- to run api server: npm start
