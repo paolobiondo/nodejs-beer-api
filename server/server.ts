@@ -16,7 +16,6 @@ dataSource
         cleanProduction()
         cleanBeers()
 
-        
         // run server
         server.listen(port, () => {
             console.log("running")
