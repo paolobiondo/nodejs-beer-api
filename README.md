@@ -1,8 +1,8 @@
 # nodejs-beer-api
 
-Technology: NodeJS with ExpressJS
-Database: MySQL
-ORM: typeorm
+Technology: NodeJS with ExpressJS  \
+Database: MySQL  \
+ORM: typeorm  \
 
 1) create an .env file inside the folder server with this code:
 ```
