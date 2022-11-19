@@ -114,7 +114,6 @@ class ProductionController {
         const type = req.query.type // mandatory
         let startDay = req.query.startDay
         let endDay
-        let bestDays
 
         if (startDay !== undefined) {
             endDay = req.query.endDay === undefined ? startDay : req.query.endDay
