@@ -14,3 +14,18 @@ export async function findBestProduction(items) {
     }
     return bestDays.join(" and ")
 }
+
+export function cleanProduction() {
+    try {
+        dataSource
+            .createQueryBuilder()
+            .delete()
+            .from(Production)
+            .execute()
+            .then(() => {
+                console.log("cleaned")
+            })
+    } catch (error) {
+        console.log(`error while deleting: ${error}`)
+    }
+}

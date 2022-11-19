@@ -3,6 +3,8 @@ import express from "express"
 import { dataSource } from "./src/configs/database"
 import { router as beerRouter } from "./src/routes/beer"
 import { router as productionRouter } from "./src/routes/production"
+import { cleanBeers } from "./src/helpers/beer"
+import { cleanProduction } from "./src/helpers/production"
 
 const port = process.env.PORT
 
@@ -10,6 +12,10 @@ dataSource
     .initialize()
     .then(() => {
         console.log("connected to db!")
+
+        // remove all records from db every time run
+        cleanProduction()
+        cleanBeers()
 
         // run server
         server.listen(port, () => {
