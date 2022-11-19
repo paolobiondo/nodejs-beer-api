@@ -1,7 +1,8 @@
 import 'dotenv/config'
 import express from "express"
 import { dataSource } from "./src/configs/database"
-
+import { router as beerRouter } from "./src/routes/beer"
+import { router as productionRouter } from "./src/routes/production"
 
 const port = process.env.PORT
 
@@ -25,3 +26,9 @@ const server = express()
 // middlewares
 server.use(express.json())
 server.use(express.urlencoded({ extended: true }))
+
+// routes
+server.use("/api/v1/beer", beerRouter)
+server.use("/api/v1/production", productionRouter)
+
+export = server
