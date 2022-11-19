@@ -1,4 +1,6 @@
 import { DataSource } from "typeorm"
+import {Beer} from '../models/beer'
+import {Production} from '../models/production'
 
 export const dataSource = new DataSource({
     type: "mysql",
@@ -7,7 +9,7 @@ export const dataSource = new DataSource({
     username: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    entities: [],
+    entities: [Beer,Production],
     synchronize: true,
     timezone: 'utc' 
 })

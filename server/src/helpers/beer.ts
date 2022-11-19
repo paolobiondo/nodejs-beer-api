@@ -2,7 +2,7 @@ import { dataSource } from "../configs/database"
 import { Beer } from "../models/beer"
 
 export function cleanBeers() {
-
+    try {
         dataSource
             .createQueryBuilder()
             .delete()
@@ -11,6 +11,9 @@ export function cleanBeers() {
             .then(() => {
                 console.log("cleaned")
             })
+    } catch (error) {
+        console.log(`error while deleting: ${error}`)
+    }
 
 }
 

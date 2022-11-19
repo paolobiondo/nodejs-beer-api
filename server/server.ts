@@ -12,11 +12,11 @@ dataSource
     .initialize()
     .then(() => {
         console.log("connected to db!")
-
         // remove all records from db every time run
         cleanProduction()
         cleanBeers()
 
+        
         // run server
         server.listen(port, () => {
             console.log("running")
