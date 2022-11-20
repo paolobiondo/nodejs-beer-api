@@ -21,7 +21,7 @@ DB_DOCKER_NAME=beer
 3) go to /server folder 
 4) run the following code: npm install
 2) run the APIs:
-- docker (test automatically): docker-compose up
+- docker: docker-compose up
 - to test it: npm test
 - to run api server: npm start
 
