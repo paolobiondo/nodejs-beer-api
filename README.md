@@ -24,3 +24,23 @@ DB_DOCKER_NAME=beer
 - docker (test automatically): docker-compose up
 - to test it: npm test
 - to run api server: npm start
+
+## Run APIs
+- Add beer 
+```
+curl -X POST -d 'name=bionda' localhost:3000/api/v1/beer/add
+```
+- Add prodution
+```
+curl -X POST -d 'name=bionda' -d 'liters=4' -d 'day=2022-11-20' localhost:3000/api/v1/production/add
+```
+- Get prodution results
+```
+curl -X GET "localhost:3000/api/v1/production/results?type=bionda&startDay=2022-11-18&endDay=2022-11-21"
+
+```
+- Get best production days
+```
+curl -X GET "localhost:3000/api/v1/production/best-days?type=bionda&startDay=2022-11-18&endDay=2022-11-21"
+
+```
