@@ -4,7 +4,7 @@ Technology: NodeJS with ExpressJS  \
 Database: MySQL  \
 ORM: typeorm
 
-1) create an .env file inside the folder server with this code:
+1) create an .env file inside the folder /server with this code:
 ```
 PORT = 3000
 DB_HOST = 127.0.0.1
@@ -18,7 +18,9 @@ DB_DOCKER_USER=root
 DB_DOCKER_PASSWORD=beer
 DB_DOCKER_NAME=beer
 ```
-2) run the code:
+3) go to /server folder 
+4) run the following code: npm install
+2) run the APIs:
 - docker (test automatically): docker-compose up
 - to test it: npm test
 - to run api server: npm start
