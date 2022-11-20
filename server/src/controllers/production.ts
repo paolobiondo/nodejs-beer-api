@@ -115,6 +115,7 @@ class ProductionController {
         let startDay = req.query.startDay
         let endDay
 
+
         if (startDay !== undefined) {
             endDay = req.query.endDay === undefined ? startDay : req.query.endDay
 
@@ -134,7 +135,8 @@ class ProductionController {
                     .createQueryBuilder("beer")
                     .where("name = :name", { name: type })
                     .getOne()
-                queryWhere = `production.beer = ${beer.id}`
+                if(beer) 
+                    queryWhere = `production.beer = ${beer.id}`
             }
 
             // where query with start and end dates
@@ -146,10 +148,10 @@ class ProductionController {
                         .createQueryBuilder("beer")
                         .where("name = :name", { name: type })
                         .getOne()
-                    queryWhere += ` AND production.createdDate BETWEEN '${startDay.toString()}' AND '${endDay.toString()}'`
+                    if(beer)
+                        queryWhere += ` AND production.createdDate BETWEEN '${startDay.toString()}' AND '${endDay.toString()}'`
                 }
             }
-
             if (type !== "all") {
                 // get items
                 const items = await productionRepo.createQueryBuilder("production")
