@@ -39,7 +39,6 @@ describe('Create Beers', function () {
                     // run server
                     server.listen(port, () => {
                         console.log("running")
-                        return "running"
                     })
                 })
             })

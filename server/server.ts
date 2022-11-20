@@ -13,16 +13,9 @@ dataSource
     .then(() => {
         console.log("connected to db!")
 
-        // remove all records from db every time run
-        cleanProduction().then(() => {
-            cleanBeers().then(() => {
-                // run server
-                server.listen(port, () => {
-                    console.log("running")
-                })
-            })
+        server.listen(port, () => {
+            console.log("running")
         })
-
 
     })
     .catch((error) => {
