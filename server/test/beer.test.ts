@@ -47,6 +47,87 @@ describe('Create Beers', function () {
     
 })
 
+describe('Add Production', function () {
+    before(async () => {
+        if(!dataSource.isInitialized) {
+            await dataSource.initialize()
+        }
+    })
+    
+    const arr = [{
+        'name': 'bionda',
+        'liters': 2,
+        'day': "2022-11-18"
+    },{
+        'name': 'bionda',
+        'liters': 3,
+        'day': "2022-11-19"
+    },{
+        'name': 'bionda',
+        'liters': 0,
+        'day': "2022-11-20"
+    },{
+        'name': 'bionda',
+        'liters': 5,
+        'day': "2022-11-21"
+    },{
+        'name': 'bionda',
+        'liters': 2,
+        'day': "2022-11-22"
+    },{
+        'name': 'rossa',
+        'liters': 3,
+        'day': "2022-11-18"
+    },{
+        'name': 'rossa',
+        'liters': 3,
+        'day': "2022-11-19"
+    },{
+        'name': 'rossa',
+        'liters': 4,
+        'day': "2022-11-20"
+    },{
+        'name': 'rossa',
+        'liters': 0,
+        'day': "2022-11-21"
+    },{
+        'name': 'rossa',
+        'liters': 2,
+        'day': "2022-11-22"
+    },{
+        'name': 'stout',
+        'liters': 0,
+        'day': "2022-11-18"
+    },{
+        'name': 'stout',
+        'liters': 0,
+        'day': "2022-11-19"
+    },{
+        'name': 'stout',
+        'liters': 4,
+        'day': "2022-11-20"
+    },{
+        'name': 'stout',
+        'liters': 1,
+        'day': "2022-11-21"
+    },{
+        'name': 'stout',
+        'liters': 6,
+        'day': "2022-11-22"
+    },]
+    for(let i=0; i < arr.length; i++) {
+        it(`adding ${arr[i].name} - day: ${arr[i].day}`, async () => {
+            const res = await request(server)
+                .post('/api/v1/production/add')
+                .send(arr[i])
+            if(res) {
+                console.log(res.body)
+                expect(res.body.message).to.equal("production added")
+            }
+        })
+    }
+})
+
 describe('Check Result Production', function () {
     before(async () => {
         if(!dataSource.isInitialized) {
