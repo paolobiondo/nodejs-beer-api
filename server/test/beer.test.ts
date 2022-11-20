@@ -32,17 +32,6 @@ describe('Create Beers', function () {
     before(async () => {
         let db = await dataSource.initialize()
         server = await connection()
-        await function () {
-            // remove all records from db every time run
-            cleanProduction().then(() => {
-                cleanBeers().then(() => {
-                    // run server
-                    server.listen(port, () => {
-                        console.log("running")
-                    })
-                })
-            })
-        }
     })
 
     it('adding bionda...', async () => {
